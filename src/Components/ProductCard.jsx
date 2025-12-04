@@ -4,7 +4,7 @@ export default function ProductCard({ tag, productImg, detailsImg, colors = [] }
   const [selectedDot, setSelectedDot] = React.useState(null);
 
   return (
-    <div className="shrink-0 w-48 sm:w-56 md:w-60 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all snap-start">
+    <div className="shrink-0 w-48 sm:w-56 md:w-60 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all snap-start hover:scale-105 hover:-rotate-1 hover:-translate-y-1">
 
       {/* TAG + HEART */}
       <div className="flex justify-between p-3">
