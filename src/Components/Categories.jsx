@@ -19,14 +19,14 @@ export default function Categories() {
       {/* LEFT ARROW */}
       <button
         onClick={scrollLeft}
-        className="hidden md:flex absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-20 
+        className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 
                    bg-white rounded-full shadow-md p-2 hover:scale-110 transition-transform"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="rgb(0,120,92)"  /* GEMLAY GREEN */
+          stroke="rgb(0,120,92)"
           strokeWidth="3"
           className="h-8 w-8"
         >
@@ -34,34 +34,38 @@ export default function Categories() {
         </svg>
       </button>
 
-      {/* CATEGORY LIST */}
-   <div
-  ref={scrollRef}
-  className="flex gap-14 overflow-x-auto no-scrollbar scroll-smooth pl-20 pr-12 lg:pl-32 lg:pr-20"
->
-  {categories.map((item, index) => (
-    <div
-      key={index}
-      className="flex flex-col items-center cursor-pointer shrink-0 group"
-    >
-      <div className="h-24 w-24 lg:h-28 lg:w-28 border-[3px] border-teal-700 rounded-full flex justify-center items-center group-hover:scale-105 transition-transform">
-        <img src={item.img} alt={item.label} className="h-16 w-16 object-contain" />
+      {/* CENTERED CONTAINER */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* CATEGORY LIST */}
+        <div
+          ref={scrollRef}
+          className="flex gap-14 overflow-x-auto no-scrollbar scroll-smooth px-4 sm:px-6 lg:px-8 pb-6 -mx-4 sm:-mx-6 lg:-mx-8"
+        >
+          {/* render categories twice so arrows have more content to scroll */}
+          {[...categories, ...categories].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center cursor-pointer shrink-0 group"
+            >
+              <div className="h-24 w-24 lg:h-28 lg:w-28 border-[3px] border-teal-700 rounded-full flex justify-center items-center group-hover:scale-105 transition-transform">
+                <img src={item.img} alt={item.label} className="h-16 w-16 object-contain" />
+              </div>
+
+              <span className="mt-2 text-xs lg:text-sm font-medium text-gray-700">
+                {item.label}
+              </span>
+
+              <span className="w-4 h-[3px] bg-teal-700 rounded-full mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            </div>
+          ))}
+          {/* no extra spacer; px ensures equal left/right visible gap */}
+        </div>
       </div>
-
-      <span className="mt-2 text-xs lg:text-sm font-medium text-gray-700">
-        {item.label}
-      </span>
-
-      <span className="w-4 h-[3px] bg-teal-700 rounded-full mt-1 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-    </div>
-  ))}
-</div>
-
 
       {/* RIGHT ARROW */}
       <button
         onClick={scrollRight}
-        className="hidden md:flex absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-20 
+        className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 
                    bg-white rounded-full shadow-md p-2 hover:scale-110 transition-transform"
       >
         <svg
